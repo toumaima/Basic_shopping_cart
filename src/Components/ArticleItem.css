@@ -1,0 +1,22 @@
+.card {
+  border: solid 2px rgb(31, 84, 116);
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px #aaaaaa;
+  margin-right: 5px;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  color: gray;
+  font-size: 14px;
+  font-family: sans-serif;
+  box-shadow: 5px 5px 5px #aaaaaa;
+
+  background-color: azure;
+  border-radius: 4px;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 4px;
+}
