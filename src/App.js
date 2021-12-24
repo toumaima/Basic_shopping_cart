@@ -7,12 +7,15 @@ import Cart from "./pages/Cart";
 import CartIcon from"./Components/CartIcon";
 import store from "./store/store";
 import {Provider} from "react-redux";
+import SignIn from './pages/Signin'
 
 function App() {
+  
   return (
+    <>
     <Router>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+      <nav> 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar">
             <li class="nav-item">
@@ -24,8 +27,12 @@ function App() {
             <li class="nav-item">
               <Link class="nav-link" to="/cart">Cart</Link>
             </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/signin">Sign in</Link>
+            </li>
             <CartIcon />
            </ul>
+
         </div>
       </nav>
 
@@ -34,9 +41,12 @@ function App() {
       <Route path="/Articles" element={<Articles/>} exact/>
       <Route path="/Articles/:id" element={<Article/>}/>
       <Route path="/cart" element={<Cart/>} />
+      <Route path="/signin" element={<SignIn/>} />
       </Routes>
       </div>
     </Router>
+    
+    </>
   );
 }
 
