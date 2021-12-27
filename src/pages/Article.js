@@ -2,15 +2,16 @@ import { useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import  {getById}  from "../api/articles"
 import {addToCart} from "../store/actions/action";
-import {connect} from "react-redux"
+import {useDispatch} from "react-redux"
 
-const Article =(props) => {
+export const Article =() => {
     const [article, setAticle]= useState({})
     const [loading, setLoading]= useState(true);
     const [quantity, setQuantity]= useState(0);
+    const dispatch = useDispatch();
 
     const { id } = useParams();
-   
+
 
     useEffect(()=>{
             getById(parseInt(id)).then((article)=>{setAticle(article)}).catch(err => alert(err)); setLoading(false);}
@@ -18,7 +19,7 @@ const Article =(props) => {
     , [id]);
 
     const addtToCart = (article) => { 
-        props.addToCart(article, quantity);
+        dispatch(addToCart(article, parseInt(quantity)));
     }
 
     const handleOnClick= (event) =>
@@ -58,14 +59,3 @@ const Article =(props) => {
     </div>
 </>
 }
-
-
-const mapDispatchToProps = (dispatch) => {
-   return {
-       addToCart: (article, quantity) => dispatch(addToCart(article, parseInt(quantity))),
-   };
-}
-
-// mapStateToProps is null here
-export default connect(null, mapDispatchToProps)(Article);
-
