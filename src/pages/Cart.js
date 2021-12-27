@@ -1,42 +1,26 @@
 import React from "react";
 import {CartItem}from "../Components/CartItem";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
-const Cart = (props) => {
-    console.log(props.cartItems);
+export const Cart = () => {
+    const  cartItems =useSelector(state => state.cart);
+    const total = useSelector(state => state.cart.reduce((total, item) => total + item.quantity * item.article.price, 0));
+    console.log(cartItems);
 
-        return (
+    return (
             <div>
-                <h1>Cart</h1>
-
-                <div className="row">
-                    {props.cartItems.map(item => { 
+            <h1>Cart</h1>
+             <div className="row">
+                    {cartItems.map(item => { 
                         return (<div className={'col-3'} key={item.article.id}>
-                            <CartItem item={item} />
-                
+                            <CartItem item={item} />            
                         </div>);}
                     )}
-                </div>
-
-                <br />
-                <h3>
-                    Total: {props.total}
-                </h3>
-                <button className="btn btn-primary btn-block">Pay</button>
+             </div>
+             <br />
+             <h3>
+                Total: {total}
+             </h3>
+            <button className="btn btn-primary btn-block">Pay</button>
             </div>
-        );
-    }
-
-
-
-    const mapStateToProps = (state) => {
-        return {
-            cartItems: state.cart,
-     
-            total: state.cart.reduce((total, item) => total + item.quantity * item.article.price, 0),
-        };
-    }
-
-   
-    export default connect(mapStateToProps)(Cart);
-
+            );}
