@@ -7,8 +7,7 @@ export const Cart = () => {
     const total = useSelector(state => state.cart.reduce((total, item) => total + item.quantity * item.article.price, 0));
     console.log(cartItems);
 
-    return (
-            <div>
+    return (<div>
             <h1>Cart</h1>
              <div className="row">
                     {cartItems.map(item => { 
