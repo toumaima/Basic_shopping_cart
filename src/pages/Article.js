@@ -5,6 +5,7 @@ import {addToCart} from "../store/actions/action";
 import {useDispatch} from "react-redux"
 
 export const Article =() => {
+    
     const [article, setAticle]= useState({})
     const [loading, setLoading]= useState(true);
     const [quantity, setQuantity]= useState(0);
@@ -30,18 +31,19 @@ export const Article =() => {
                 
             setQuantity(value);
             }
+
     if(loading)
         return 'Loading ..';
     return <>
     <div style={{display: "block"}}>
         <>
         <img style={{ border: "solid 2px rgb(31, 84, 116)",
-  borderRadius: "4px",
-  boxShadow: "5px 5px 5px #aaaaaa",
-  marginRight: "5px",
-  textAlign: "center",
-  justifyContent: "center",
-  flexWrap: "wrap"}}src={article.image} width={'25%'} alt=""/>
+        borderRadius: "4px",
+        boxShadow: "5px 5px 5px #aaaaaa",
+        marginRight: "5px",
+        textAlign: "center",
+        justifyContent: "center",
+        flexWrap: "wrap"}}src={article.image} width={'25%'} alt=""/>
         </>
         <div className="col-6">
         <h1>{article.name}</h1>

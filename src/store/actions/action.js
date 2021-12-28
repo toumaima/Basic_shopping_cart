@@ -1,4 +1,4 @@
-import {ADD_TO_CART} from "../actions/types";
+import {ADD_TO_CART,REMOVE_FROM_CART } from "../actions/types";
 
 export const addToCart= (article, quantity) => {
     return {
@@ -8,9 +8,9 @@ export const addToCart= (article, quantity) => {
     }
 }
 
-//export const deleteFromCart= (index) => {
-  //  return {
-    //    type: REMOVE_FROM_CART,
-      //  index, 
-    //}
-//}
+export function removeFromCart(index){
+  return {
+      type: REMOVE_FROM_CART,
+      index
+  }
+}

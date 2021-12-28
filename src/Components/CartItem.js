@@ -1,13 +1,19 @@
 import React from "react";
-//import {connect} from "react-redux";
-//import {deleteFromCart} from "../store/actions/action";
+import {useDispatch } from "react-redux";
+import {removeFromCart} from "../store/actions/action";
 
-export const CartItem= (props) =>{
-    const {item} = props;
+export const CartItem = (props) =>{
+
+    const {item, index} = props;
     const {article} = item;
 
-    return ( 
+    const dispatch = useDispatch();
 
+    const handleRemoveFromCart = () =>{
+    dispatch(removeFromCart(index) );
+    }
+
+    return ( 
         <div className="card">
             <img src={article.image} className="card-img-top" alt="..." />
             <div className="card-body">
@@ -21,18 +27,10 @@ export const CartItem= (props) =>{
                     <br />
                     Total: {item.quantity * article.price}
                 </p>
-                <a href="#" className="btn btn-danger">
+                <button onClick={ handleRemoveFromCart} className="btn btn-danger">
                     <i className="fa fa-trash"></i> Delete
-                </a>
+                </button>
             </div>
         </div>
     );
 }
-
-//const mapDispatchToProps = (dispatch) => {
-  //  return {
-    //    deleteFromCart: (index) => dispatch(deleteFromCart(index)),
-   // };
-// }
-
- //export default connect(null, mapDispatchToProps)(CartItem);

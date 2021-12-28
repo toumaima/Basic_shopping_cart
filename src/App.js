@@ -6,7 +6,7 @@ import './App.css';
 import Articles from './pages/Articles';
 import { Article } from './pages/Article';
 import { Cart } from './pages/Cart';
-import { CartIcon } from './Components/CartIcon';
+import { CartIcon} from './Components/CartIcon';
 import store from './store/store';
 import { Provider } from 'react-redux';
 import SignIn from './pages/Signin';

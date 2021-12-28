@@ -1,5 +1,5 @@
  
- import {ADD_TO_CART} from "../actions/types"
+ import {ADD_TO_CART,REMOVE_FROM_CART} from "../actions/types"
 
  
  export const cartReducer=(state, action) => {
@@ -11,20 +11,11 @@
         return {cart : [...state.cart, {article:action.article,  quantity: action.quantity}]
 
      }}
+     case REMOVE_FROM_CART: {
+      return {cart: state.cart.filter((item) => item.article.id !== action.index)} ;
+
+     }
      default: return state;
 
     }}
- 
-   
-//export const deleteFromCart=(state, action) =>{
-
-  // switch(action.type)
-   //{
-   // case  DELETE_FROM_CART:{ 
-     //  return {cart : [...state.cart, {article:action.article,  quantity: action.quantity}]
-
-   // }}
-    //default: return state;
-
-  // }
-//}
+  
