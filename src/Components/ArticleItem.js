@@ -7,7 +7,7 @@ export default function ArticleItem(props){
 
     return (
         <div className="card">
-        <img src={article.image} className="card-img-top" alt="..." />
+        <img src={article.image} className="card-img-top" alt="capcake" width="300px" />
         <div className="card-body">
             <h5 className="card-title">
                 {article.name}
